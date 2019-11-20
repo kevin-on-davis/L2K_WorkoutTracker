@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+<!-- Button to open the modal login form -->
+    <button onclick="showLogin()">Login</button>
+    <button onclick="showRegistration()">Register</button>
+
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'"
+    class="close" title="Close Modal">&times;</span>
+
+    <!-- Modal Content -->
+    <form class="modal-content animate" action="/action_page.php">
+        <div class="imgcontainer">
+        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit">Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+    </div>
+    <div id="id02" class="modal-content animate">
+            <IFRAME style="display:none" name="hidden-form"></IFRAME>
+            <form class="registrationForm" action="/api/users"  method="POST" target="hidden-form">
+                First name:<br/>
+                <input type="text" name="firstname"><br/>
+                Last name:<br/>
+                <input type="text" name="lastname"><br/>
+                Address:<br/>
+                <input type="text" name="address_line1" placeholder="Address line 1"><br/>
+                <input type="text" name="address_line2" placeholder="Address line 1"><br/>
+                City:</br>
+                <input type="text" name="city"><br/>
+                Postal Code:<br/>
+                <input type="text" name="postal_code"><br/>
+                Contact No.:<br/>
+                <input type="tel" id="phone" name="cellphone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br/>
+                Email:<br/>
+                <input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" size="30" name="email"><br/>
+                Password:<br/>
+                <input type="password" id="userpw" name="form_password"><br/>
+                Fitness Goals:<br/>
+                <textarea id="fitness_goals" spellcheck="true" name="fitness_goals" rows="5" cols="33"></textarea><br/>
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                <input type="submit" value="Submit">
+            </form>
+        </div>	
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
